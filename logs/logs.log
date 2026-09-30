@@ -1,0 +1,100 @@
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+fantasy_commissioner_api  |     await app(scope, receive, sender)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+fantasy_commissioner_api  |     await self.app(scope, receive, send)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+fantasy_commissioner_api  |     await self.middleware_stack(scope, receive, send)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+fantasy_commissioner_api  |     await route.handle(scope, receive, send)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+fantasy_commissioner_api  |     await super().handle(scope, receive, send)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+fantasy_commissioner_api  |     await self.app(scope, receive, send)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+fantasy_commissioner_api  |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+fantasy_commissioner_api  |     raise exc
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+fantasy_commissioner_api  |     await app(scope, receive, sender)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+fantasy_commissioner_api  |     response = await f(request)
+fantasy_commissioner_api  |                ^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+fantasy_commissioner_api  |     raw_response = await run_endpoint_function(
+fantasy_commissioner_api  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+fantasy_commissioner_api  |     return await dependant.call(**values)
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/app/app/main.py", line 73, in sync_transactions
+fantasy_commissioner_api  |     return await service.sync_week(
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/app/app/sync/transactions.py", line 94, in sync_week
+fantasy_commissioner_api  |     self.db.commit()
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2095, in commit
+fantasy_commissioner_api  |     trans.commit(_to_root=True)
+fantasy_commissioner_api  |   File "<sqlalchemy generated _go() wrapper for sqlalchemy.orm.session.SessionTransaction.commit>", line 2, in commit
+fantasy_commissioner_api  |     return target(fn, self, _to_root=_to_root)
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+fantasy_commissioner_api  |     ret_value = fn(self, *arg, **kw)
+fantasy_commissioner_api  |                 ^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1330, in commit
+fantasy_commissioner_api  |     self._prepare_impl()
+fantasy_commissioner_api  |   File "<sqlalchemy generated _go() wrapper for sqlalchemy.orm.session.SessionTransaction._prepare_impl>", line 2, in _prepare_impl
+fantasy_commissioner_api  |     return target(fn, self)
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+fantasy_commissioner_api  |     ret_value = fn(self, *arg, **kw)
+fantasy_commissioner_api  |                 ^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1304, in _prepare_impl
+fantasy_commissioner_api  |     self.session.flush()
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4536, in flush
+fantasy_commissioner_api  |     self._flush(objects)
+fantasy_commissioner_api  |   File "<sqlalchemy generated warned() wrapper for sqlalchemy.orm.session.Session._flush>", line 2, in _flush
+fantasy_commissioner_api  |     return target(fn, self, objects=objects)
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+fantasy_commissioner_api  |     return fn(*args, **kwargs)  # type: ignore[no-any-return]
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4679, in _flush
+fantasy_commissioner_api  |     with util.safe_reraise():
+fantasy_commissioner_api  |          ^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 166, in __exit__
+fantasy_commissioner_api  |     raise exc_value.with_traceback(exc_tb)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4640, in _flush
+fantasy_commissioner_api  |     flush_context.execute()
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
+fantasy_commissioner_api  |     rec.execute(self)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 643, in execute
+fantasy_commissioner_api  |     util.preloaded.orm_persistence._save_obj(
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 92, in _save_obj
+fantasy_commissioner_api  |     _emit_insert_statements(
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1147, in _emit_insert_statements
+fantasy_commissioner_api  |     result = connection.execute(
+fantasy_commissioner_api  |              ^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1448, in execute
+fantasy_commissioner_api  |     return meth(
+fantasy_commissioner_api  |            ^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 533, in _execute_on_connection
+fantasy_commissioner_api  |     return connection._execute_clauseelement(
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1668, in _execute_clauseelement
+fantasy_commissioner_api  |     ret = self._execute_context(
+fantasy_commissioner_api  |           ^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1820, in _execute_context
+fantasy_commissioner_api  |     return self._exec_insertmany_context(dialect, context)
+fantasy_commissioner_api  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2111, in _exec_insertmany_context
+fantasy_commissioner_api  |     self._handle_dbapi_exception(
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2332, in _handle_dbapi_exception
+fantasy_commissioner_api  |     raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2094, in _exec_insertmany_context
+fantasy_commissioner_api  |     dialect.do_execute(
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 1180, in do_execute
+fantasy_commissioner_api  |     cursor.execute(statement, parameters)
+fantasy_commissioner_api  |   File "/usr/local/lib/python3.12/site-packages/psycopg/cursor.py", line 117, in execute
+fantasy_commissioner_api  |     raise ex.with_traceback(None)
+fantasy_commissioner_api  | sqlalchemy.exc.DataError: (psycopg.errors.NumericValueOutOfRange) integer out of range
+fantasy_commissioner_api  | [SQL: INSERT INTO transactions (league_id, sleeper_transaction_id, type, status, creator, created_at_sleeper, roster_ids, adds, drops, waiver_bid, draft_picks, transaction_json, created_at) SELECT p0::INTEGER, p1::VARCHAR, p2::VARCHAR, p3::VARCHAR, p4::VAR ... 90671 characters truncated ... p10, p11, p12, sen_counter) ORDER BY sen_counter RETURNING transactions.id, transactions.id AS id__1]
+fantasy_commissioner_api  | [parameters: {'league_id__0': 1, 'creator__0': '743181354530938880', 'type__0': 'waiver', 'created_at__0': datetime.datetime(2026, 9, 30, 21, 23, 51, 39087), 'roster_ids__0': Jsonb([2]), 'adds__0': Jsonb({'3161': 2}), 'draft_picks__0': Jsonb([]), 'waiver_bid__0': None, 'transaction_json__0': Jsonb({'status': 'complete', 'type': 'wai ... (414 chars)), 'status__0': 'complete', 'sleeper_transaction_id__0': '1405810889264816128', 'drops__0': Jsonb(None), 'created_at_sleeper__0': 1789533944005, 'league_id__1': 1, 'creator__1': '863607071961149440', 'type__1': 'waiver', 'created_at__1': datetime.datetime(2026, 9, 30, 21, 23, 51, 39091), 'roster_ids__1': Jsonb([12]), 'adds__1': Jsonb({'5854': 12}), 'draft_picks__1': Jsonb([]), 'waiver_bid__1': None, 'transaction_json__1': Jsonb({'status': 'failed', 'type': 'waive ... (411 chars)), 'status__1': 'failed', 'sleeper_transaction_id__1': '1405765767630249984', 'drops__1': Jsonb(None), 'created_at_sleeper__1': 1789523186170, 'league_id__2': 1, 'creator__2': '1376590383269556224', 'type__2': 'waiver', 'created_at__2': datetime.datetime(2026, 9, 30, 21, 23, 51, 39092), 'roster_ids__2': Jsonb([11]), 'adds__2': Jsonb({'5854': 11}), 'draft_picks__2': Jsonb([]), 'waiver_bid__2': None, 'transaction_json__2': Jsonb({'status': 'failed', 'type': 'waive ... (412 chars)), 'status__2': 'failed', 'sleeper_transaction_id__2': '1405633787026587648', 'drops__2': Jsonb(None), 'created_at_sleeper__2': 1789491719541, 'league_id__3': 1, 'creator__3': '1376590383269556224', 'type__3': 'free_agent', 'created_at__3': datetime.datetime(2026, 9, 30, 21, 23, 51, 39093), 'roster_ids__3': Jsonb([11]), 'adds__3': Jsonb(None), 'draft_picks__3': Jsonb([]), 'waiver_bid__3': None, 'transaction_json__3': Jsonb({'status': 'complete', 'type': 'fre ... (344 chars)), 'status__3': 'complete', 'sleeper_transaction_id__3': '1405633281797447680' ... 2825 parameters truncated ... 'type__221': 'free_agent', 'created_at__221': datetime.datetime(2026, 9, 30, 21, 23, 51, 39324), 'roster_ids__221': Jsonb([5]), 'adds__221': Jsonb(None), 'draft_picks__221': Jsonb([]), 'waiver_bid__221': None, 'transaction_json__221': Jsonb({'status': 'complete', 'type': 'fre ... (340 chars)), 'status__221': 'complete', 'sleeper_transaction_id__221': '1389827408223281152', 'drops__221': Jsonb({'8858': 5}), 'created_at_sleeper__221': 1785723185166, 'league_id__222': 1, 'creator__222': '933938013757849600', 'type__222': 'free_agent', 'created_at__222': datetime.datetime(2026, 9, 30, 21, 23, 51, 39325), 'roster_ids__222': Jsonb([5]), 'adds__222': Jsonb(None), 'draft_picks__222': Jsonb([]), 'waiver_bid__222': None, 'transaction_json__222': Jsonb({'status': 'complete', 'type': 'fre ... (340 chars)), 'status__222': 'complete', 'sleeper_transaction_id__222': '1389827378909315072', 'drops__222': Jsonb({'9498': 5}), 'created_at_sleeper__222': 1785723178177, 'league_id__223': 1, 'creator__223': '933938013757849600', 'type__223': 'free_agent', 'created_at__223': datetime.datetime(2026, 9, 30, 21, 23, 51, 39326), 'roster_ids__223': Jsonb([5]), 'adds__223': Jsonb(None), 'draft_picks__223': Jsonb([]), 'waiver_bid__223': None, 'transaction_json__223': Jsonb({'status': 'complete', 'type': 'fre ... (340 chars)), 'status__223': 'complete', 'sleeper_transaction_id__223': '1389827343568101376', 'drops__223': Jsonb({'8885': 5}), 'created_at_sleeper__223': 1785723169752, 'league_id__224': 1, 'creator__224': '458832351447740416', 'type__224': 'free_agent', 'created_at__224': datetime.datetime(2026, 9, 30, 21, 23, 51, 39327), 'roster_ids__224': Jsonb([13]), 'adds__224': Jsonb(None), 'draft_picks__224': Jsonb([]), 'waiver_bid__224': None, 'transaction_json__224': Jsonb({'status': 'complete', 'type': 'fre ... (342 chars)), 'status__224': 'complete', 'sleeper_transaction_id__224': '1389827213389475840', 'drops__224': Jsonb({'902': 13}), 'created_at_sleeper__224': 1785723138714}]
+fantasy_commissioner_api  | (Background on this error at: https://sqlalche.me/e/21/9h9h)

@@ -1,8 +1,8 @@
 fastapi
 uvicorn[standard]
-sqlalchemy
+sqlalchemy[asyncio]>=2.0
 psycopg[binary]
-alembic
+alembic>=1.13
 httpx
 pydantic-settings
 python-dotenv

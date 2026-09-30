@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, Integer, String
+from sqlalchemy import BigInteger, DateTime, Integer, String
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -41,8 +41,9 @@ class Transaction(Base):
         index=True,
     )
 
+    # Sleeper returns epoch milliseconds (e.g. 1789533944005) — needs 64-bit
     created_at_sleeper: Mapped[int | None] = mapped_column(
-        Integer,
+        BigInteger,
     )
 
     roster_ids: Mapped[list | None] = mapped_column(
@@ -73,4 +74,8 @@ class Transaction(Base):
         DateTime,
         default=datetime.utcnow,
         nullable=False,
+    )
+    
+    notes: Mapped[str | None] = mapped_column(
+        String(255)
     )
