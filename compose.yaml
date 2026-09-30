@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16
+    container_name: fantasy_commissioner_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fantasy_commissioner
+      POSTGRES_USER: commissioner
+      POSTGRES_PASSWORD: commissioner_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fantasy_commissioner_api
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
